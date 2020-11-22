@@ -1,0 +1,124 @@
+.container {
+    margin: auto;
+    width: 80%;
+    /* border: 3px solid green; */
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+}
+
+.main-title {
+    font-size: 2.5vw;
+    text-align: center;
+    color: white;
+}
+
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+}
+
+.description {
+    margin-top: 25px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.card-deck {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgb(40, 75, 99);
+    /* background-color: rgb(60, 110, 113); */
+    transition: 0.3s;
+    color: white;
+    height: 100px;
+    text-decoration: none;
+    text-align: center;
+    max-width: fit-content;
+    min-width: 25%;
+    border-radius: 5px;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+  
+.card-container {
+    padding: 2px 16px;
+}
+
+body {
+    background-color: rgb(53, 53, 53);
+}
+
+.btnStack {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color:rgb(40, 75, 99);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  a.btnStack:hover {
+    background-color: #000;
+  }
+
+
+
+
+
+
+  .navbar {
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+    overflow: auto;
+}
+
+.navbar a {
+    float: left;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 40%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center; /* If you want the text to be centered */
+    font-family: 'Castoro', serif;
+  }
+  
+  /* Add a background color on mouse-over */
+  .navbar a:hover {
+    background-color: rgb(95, 94, 94);
+  }
+
+  
+  /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left; /* If you want the text to be left-aligned on small screens */
+    }
+  }

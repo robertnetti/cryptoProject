@@ -3,14 +3,48 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
-  </head>
-  <body>
-    {% extends "template.html" %}
-    {% block content %}
+</head>
 
-    <h1> Home </h1>
-    <p> stuff </p>
+<body>
+  {% extends "template.html" %}
+  {% block content %}
 
-    {% endblock %}
-  </body>
+  <p class="description"> Take a look at some of the encryption options below. Click one that interests you and you can encrypt
+    and decrypt a message using that method 😄 
+  </p>
+
+  <div class="card-deck">
+    <!-- <a className="card-links" href="{{ url_for('home') }}"> -->
+    <a class="card" href="{{ url_for('affine') }}">
+      <div class="card-container">
+        <h4><b>Affine</b></h4>
+        <p></p>
+    </div> </a>
+
+    <a class="card" href="{{ url_for('substitution') }}">
+      <div class="card-container">
+        <h4><b>Substitution ciphers</b></h4>
+        <p></p>
+      </div>
+    </a>
+
+    <a class="card" href="{{ url_for('rsa') }}">
+      <div class="card-container">
+        <h4><b>RSA</b></h4>
+        <p></p>
+      </div>
+    </a>
+  </div>
+
+  <div class="card-deck">
+    <a class="card" href="{{ url_for('columnar') }}">
+      <div class="card-container">
+        <h4><b>Columnar</b></h4>
+        <p></p>
+      </div>
+    </a>
+  </div>
+
+  {% endblock %}
+</body>
 </html>
