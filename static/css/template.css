@@ -85,7 +85,32 @@ body {
     background-color: #000;
   }
 
+  textarea {
+    width: 80%;
+    padding: 12px;
+    height: 100px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 10px;
+  }
 
+  textarea:focus {
+    border: 3px solid rgb(40, 75, 99);
+  }
+
+  textarea[disabled] {
+    background-color: rgb(223, 219, 219);
+  }
+
+  input[type=submit] {
+    background-color: rgb(40, 75, 99);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 4px 2px;
+  }
 
 
   .navbar {

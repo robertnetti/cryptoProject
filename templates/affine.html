@@ -19,21 +19,21 @@
 
     <h2>Encrypt</h2>
     <form action="{{ url_for('affineEncrypt') }}" method="POST">
-      <label for="aff-encrypt">Enter message to encrypt:</label><br>
-      <input type="text" id="aff-encrypt" name="affine-encrypt"><br>
+      <label for="encrypt">Enter message to encrypt:</label><br>
+      <textarea id="encrypt" name="affine-encrypt"></textarea><br>
       <input type="submit" value="Encrypt"/>
     </form>
 
-    <div className="result"> {{encrypted}} </div>
+    <div><textarea disabled className="result">{{encrypted}}</textarea></div>
     
     <h2>Decrypt</h2>
     <form action="{{ url_for('affineDecrypt') }}" method="POST">
-      <label for="aff-decrypt">Enter message to encrypt:</label><br>
-      <input type="text" id="aff-decrypt" name="affine-decrypt"><br>
+      <label for="decrypt">Enter message to decrypt:</label><br>
+      <textarea id="decrypt" name="affine-decrypt"></textarea> <br>
       <input type="submit" value="Decrypt"/>
     </form>
 
-    <div className="result"> {{decrypted}} </div>
+    <div><textarea disabled className="result">{{decrypted}}</textarea></div>
 
     {% endblock %}
   </body>
