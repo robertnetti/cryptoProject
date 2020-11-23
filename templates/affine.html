@@ -11,7 +11,29 @@
     <a href="{{ url_for('home') }}" class="btnStack">Back home</a>
 
     <h1> Affine </h1>
-    <p> stuff </p>
+    <p> The Affine cipher is type of the general monoalphabetic substitution cipher.
+      It is less secure than a substitution cipher. Its main weakness is that through 
+      means such as frequency analysis, brute force, guessing or otherwise, the plaintext 
+      of two ciphertext characters can be found, then the key can be obtained by solving a 
+      simultaneous equation </p>
+
+    <h2>Encrypt</h2>
+    <form action="{{ url_for('affineEncrypt') }}" method="POST">
+      <label for="aff-encrypt">Enter message to encrypt:</label><br>
+      <input type="text" id="aff-encrypt" name="affine-encrypt"><br>
+      <input type="submit" value="Encrypt"/>
+    </form>
+
+    <div className="result"> {{encrypted}} </div>
+    
+    <h2>Decrypt</h2>
+    <form action="{{ url_for('affineDecrypt') }}" method="POST">
+      <label for="aff-decrypt">Enter message to encrypt:</label><br>
+      <input type="text" id="aff-decrypt" name="affine-decrypt"><br>
+      <input type="submit" value="Decrypt"/>
+    </form>
+
+    <div className="result"> {{decrypted}} </div>
 
     {% endblock %}
   </body>
