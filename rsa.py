@@ -15,7 +15,7 @@ def modinv(a, m):
     else:
         return x % m
 
-def encrypt(e, N, plaintext):
+def rsaencrypt(e, N, plaintext):
     cipher = ""
 
     for c in plaintext:
@@ -24,7 +24,7 @@ def encrypt(e, N, plaintext):
 
     return cipher
 
-def decrypt(d, N, ciphertext):
+def rsadecrypt(d, N, ciphertext):
     plaintext = ""
 
     parts = ciphertext.split()
@@ -43,7 +43,7 @@ def main():
             plaintext = input("Enter the text to be encrypted: ")
             e = int(input("Enter e for rsa encryption: "))
             N = int(input("Enter N for rsa encryption: "))
-            enc = encrypt(e, N, plaintext)
+            enc = rsaencrypt(e, N, plaintext)
             print("Ciphertext: ", enc)
         elif choice == 2:
             ciphertext = input("Enter the text to be decrypted: ")
@@ -57,7 +57,7 @@ def main():
             print("d: ", d)
             print("N: ", N)
             print("phi(N): ", phiN)
-            dec = decrypt(d, N, ciphertext)
+            dec = rsadecrypt(d, N, ciphertext)
             print("Plaintext: ", dec)
         elif choice == 3:
             print("End Program")

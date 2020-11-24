@@ -19,8 +19,12 @@
 
     <h2>Encrypt</h2>
     <form action="{{ url_for('affineEncrypt') }}" method="POST">
+      <label for="multKey">Enter multiplicative key:</label>
+      <input type="number" id="multKey" name="multKeyAffine" required/> <br>
+      <label for="multKey">Enter additive key:</label>
+      <input type="number" id="addKey" name="addKeyAffine" required/> <br>
       <label for="encrypt">Enter message to encrypt:</label><br>
-      <textarea id="encrypt" name="affine-encrypt"></textarea><br>
+      <textarea id="encrypt" name="affine-encrypt" required></textarea><br>
       <input type="submit" value="Encrypt"/>
     </form>
 
@@ -28,6 +32,10 @@
     
     <h2>Decrypt</h2>
     <form action="{{ url_for('affineDecrypt') }}" method="POST">
+      <label for="multKey">Enter multiplicative key:</label>
+      <input type="number" id="multKey" name="multKeyAffineDec" required/> <br>
+      <label for="multKey">Enter additive key:</label>
+      <input type="number" id="addKey" name="addKeyAffineDec" required/> <br>
       <label for="decrypt">Enter message to decrypt:</label><br>
       <textarea id="decrypt" name="affine-decrypt"></textarea> <br>
       <input type="submit" value="Decrypt"/>

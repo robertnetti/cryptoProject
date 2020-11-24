@@ -1,4 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
+from affine import *
+from rsa import *
 
 app = Flask(__name__)
 
@@ -14,13 +16,19 @@ def affine():
 @app.route('/affineEncrypt', methods=['POST'])
 def affineEncrypt():
     text = request.form["affine-encrypt"]
-    sending = text + " AFFINE ENCRYPTED"
+    m = int(request.form["multKeyAffine"])
+    a = int(request.form["addKeyAffine"])
+    key = [m, a]
+    sending = encrypt(text, key)
     return render_template("affine.html", encrypted=sending)
 
 @app.route('/affineDecrypt', methods=['POST'])
 def affineDecrypt():
     text = request.form["affine-decrypt"]
-    sending = text + " AFFINE DECRYPTED"
+    m = int(request.form["multKeyAffineDec"])
+    a = int(request.form["addKeyAffineDec"])
+    key = [m, a]
+    sending = decrypt(text, key)
     return render_template("affine.html", decrypted=sending)
 
 @app.route("/columnar")
@@ -45,14 +53,22 @@ def rsa():
 
 @app.route('/rsaEncrypt', methods=['POST'])
 def rsaEncrypt():
-    text = request.form["rsa-encrypt"]
-    sending = text + " RSA ENCRYPTED"
+    plaintext = request.form["rsa-encrypt"]
+    e = int(request.form["eEncrypt"])
+    N = int(request.form["nEncrypt"])
+    sending = rsaencrypt(e, N, plaintext)
     return render_template("rsa.html", encrypted=sending)
 
 @app.route('/rsaDecrypt', methods=['POST'])
 def rsaDecrypt():
-    text = request.form["rsa-decrypt"]
-    sending = text + " RSA DECRYPTED"
+    ciphertext = request.form["rsa-decrypt"]
+    e = int(request.form["eDec"])
+    p = int(request.form["pDec"])
+    q = int(request.form["qDec"])
+    phiN = (p-1)*(q-1)
+    N = p*q
+    d = modinv(e, phiN)
+    sending = rsadecrypt(d, N, ciphertext)
     return render_template("rsa.html", decrypted=sending)
 
 
