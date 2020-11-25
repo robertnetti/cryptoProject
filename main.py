@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 from affine import *
 from rsa import *
+from substitution import *
 
 app = Flask(__name__)
 
@@ -78,14 +79,16 @@ def substitution():
 
 @app.route('/substitutionEncrypt', methods=['POST'])
 def substitutionEncrypt():
-    text = request.form["substitution-encrypt"]
-    sending = text + " SUBSTITUTION ENCRYPTED"
+    plain_text = request.form["substitution-encrypt"]
+    key = int(request.form["subKeyEnc"])
+    sending = sub_encrypt(key, plain_text)
     return render_template("substitution.html", encrypted=sending)
 
 @app.route('/substitutionDecrypt', methods=['POST'])
 def substitutionDecrypt():
-    text = request.form["substitution-decrypt"]
-    sending = text + " SUBSTITUTION DECRYPTED"
+    cipher_text = request.form["substitution-decrypt"]
+    key = int(request.form["subKeyDec"])
+    sending = sub_decrypt(key, cipher_text)
     return render_template("substitution.html", decrypted=sending)
 
 @app.route("/about")
