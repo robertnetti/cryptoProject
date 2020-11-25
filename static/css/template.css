@@ -36,7 +36,11 @@ hr.rounded {
     /* background-color: rgb(60, 110, 113); */
     background-image: linear-gradient(120deg, #f5da81,#fda085);
     transition: 0.3s;
+    /* text-shadow: 2px 2px 4px #000000; */
+    /* text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black; */
+    /* color: white; */
     color: black;
+    letter-spacing: 1px;
     height: 100px;
     text-decoration: none;
     text-align: center;
