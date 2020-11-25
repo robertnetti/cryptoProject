@@ -1,7 +1,7 @@
 import string
 
 
-def sub_encrypt(key, plain_text):
+def shift_encrypt(key, plain_text):
     # list containing all characters
     letters = string.ascii_letters
 
@@ -26,7 +26,7 @@ def sub_encrypt(key, plain_text):
     return cipher_text
 
 
-def sub_decrypt(key, cipher_text):
+def shift_decrypt(key, cipher_text):
     # list containing all characters
     letters = string.ascii_letters
 
@@ -63,12 +63,12 @@ def main():
         if choice == 1:
             key = int(input("Enter Key for Encryption:"))
             plain_text = input("Enter Plaintext for Encryption:")
-            cipher_text = sub_encrypt(key, plain_text)
+            cipher_text = shift_encrypt(key, plain_text)
             print("Encrypted Message: " + cipher_text)
         elif choice == 2:
             key = int(input("Enter Key for Decryption:"))
             cipher_text = input("Enter Plaintext for Decryption:")
-            decrypt_text = sub_decrypt(key, cipher_text)
+            decrypt_text = shift_decrypt(key, cipher_text)
             print("Decrypted Message: " + decrypt_text)
         elif choice == 3:
             print("End Program")
