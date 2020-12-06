@@ -3,9 +3,9 @@
 ## About
 A website where users can encrypt and decrypt messages using various ciphers such as:
 - Affine
-- Columnar
 - RSA
 - Substitution
+- Shift
 
 ## Created by:
 - Robert Netti

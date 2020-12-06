@@ -18,7 +18,8 @@
       <div class="card-container">
         <h4><strong>Affine</strong></h4>
         <p></p>
-    </div> </a>
+      </div> 
+    </a>
 
     <a class="card" href="{{ url_for('substitution') }}">
       <div class="card-container">
@@ -26,23 +27,25 @@
         <p></p>
       </div>
     </a>
+  </div>
 
+  <div style="padding: 20px;"></div>
+
+  <div class="card-deck">
     <a class="card" href="{{ url_for('rsa') }}">
       <div class="card-container">
         <h4><strong>RSA</strong></h4>
         <p></p>
       </div>
     </a>
-  </div>
 
-  <!-- <div class="card-deck">
-    <a class="card" href="{{ url_for('columnar') }}">
+    <a class="card" href="{{ url_for('shift') }}">
       <div class="card-container">
-        <h4><strong>Columnar</strong></h4>
+        <h4><strong>Shift</strong></h4>
         <p></p>
       </div>
     </a>
-  </div> -->
+  </div>
 
   {% endblock %}
 </body>

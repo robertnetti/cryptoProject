@@ -10,22 +10,26 @@
 
     <a href="{{ url_for('home') }}" class="btnStack">Back home</a>
 
-    <h1> Columnar </h1>
-    <!-- <p> stuff </p> -->
+    <h1> Shift </h1>
+    <p> ❗❗❗  When choosing a key, make sure it is between 1 and 26. Do not choose 26 or a multiple of 26 ❗❗❗ </p>
 
     <h2>Encrypt</h2>
-    <form action="{{ url_for('columnarEncrypt') }}" method="POST">
+    <form action="{{ url_for('shiftEncrypt') }}" method="POST">
+      <label for="shiftEncKey">Enter key:</label>
+      <input type="number" id="shiftEncKey" name="shiftEncKey" required/> <br>
       <label for="encrypt">Enter message to encrypt:</label><br>
-      <textarea id="encrypt" name="columnar-encrypt"></textarea><br>
+      <textarea id="encrypt" name="shift-encrypt"></textarea><br>
       <input type="submit" value="Encrypt"/>
     </form>
 
     <div><textarea disabled className="result">{{encrypted}}</textarea></div>
     
     <h2>Decrypt</h2>
-    <form action="{{ url_for('columnarDecrypt') }}" method="POST">
+    <form action="{{ url_for('shiftDecrypt') }}" method="POST">
+      <label for="shiftDecKey">Enter key:</label>
+      <input type="number" id="shiftEncKey" name="shiftDecKey" required/> <br>
       <label for="decrypt">Enter message to decrypt:</label><br>
-      <textarea id="decrypt" name="columnar-decrypt"></textarea> <br>
+      <textarea id="decrypt" name="shift-decrypt"></textarea> <br>
       <input type="submit" value="Decrypt"/>
     </form>
 

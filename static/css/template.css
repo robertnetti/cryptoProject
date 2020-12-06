@@ -132,6 +132,17 @@ body {
     border: 3px solid rgb(40, 75, 99);
   }
 
+  input[type=text] {
+    width: 60%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+  }
+
+  input[type=text]:focus {
+    border: 3px solid rgb(40, 75, 99);
+  }
+
 
   .navbar {
     width: 100%;

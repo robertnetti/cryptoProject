@@ -11,23 +11,22 @@
     <a href="{{ url_for('home') }}" class="btnStack">Back home</a>
 
     <h1> Substitution </h1>
-    <!-- <p> stuff </p> -->
+    <p> 👉  A key is randomley generated and provided along with the Encrypted message. In order to decode it, simply
+      enter the key and cipher text in the decrypt part. </p>
 
     <h2>Encrypt</h2>
     <form action="{{ url_for('substitutionEncrypt') }}" method="POST">
-      <label for="keyEnc">Enter key:</label>
-      <input type="number" id="keyEnc" name="subKeyEnc" required/> <br>
       <label for="encrypt">Enter message to encrypt:</label><br>
       <textarea id="encrypt" name="substitution-encrypt"></textarea><br>
       <input type="submit" value="Encrypt"/>
     </form>
 
-    <div><textarea disabled disabled className="result">{{encrypted}}</textarea></div>
+    <div><textarea disabled disabled className="result"> key= {{encryptedKey}} | Encrypted Text={{encrypted}}</textarea></div>
     
     <h2>Decrypt</h2>
     <form action="{{ url_for('substitutionDecrypt') }}" method="POST">
       <label for="keyDec">Enter key:</label>
-      <input type="number" id="keyDec" name="subKeyDec" required/> <br>
+      <input type="text" id="keyDec" name="subKeyDec" required/> <br>
       <label for="decrypt">Enter message to decrypt:</label><br>
       <textarea id="decrypt" name="substitution-decrypt"></textarea> <br>
       <input type="submit" value="Decrypt"/>

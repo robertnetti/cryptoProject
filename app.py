@@ -1,13 +1,14 @@
 from flask import Flask, request, render_template, redirect, url_for
 from affine import encrypt, decrypt
 from rsa import rsaencrypt, rsadecrypt, modinv
-from substitution import sub_encrypt, sub_decrypt
+from substitution import generate_key, sub_encrypt, sub_decrypt
+from shift import shift_encrypt, shift_decrypt
 
 app = Flask(__name__)
 affineHTML = "affine.html"
 rsaHTML = "rsa.html"
 subsHTML = "substitution.html"
-columnarHTML = "columnar.html"
+shiftHTML = "shift.html"
 
 @app.route("/")
 def home():
@@ -35,21 +36,23 @@ def affineDecrypt():
     sending = decrypt(text, key)
     return render_template(affineHTML, decrypted=sending)
 
-@app.route("/columnar")
-def columnar():
-    return render_template(columnarHTML)
+@app.route("/shift")
+def shift():
+    return render_template(shiftHTML)
 
-@app.route('/columnarEncrypt', methods=['POST'])
-def columnarEncrypt():
-    text = request.form["columnar-encrypt"]
-    sending = text + " COLUMNAR ENCRYPTED"
-    return render_template(columnarHTML, encrypted=sending)
+@app.route('/shiftEncrypt', methods=['POST'])
+def shiftEncrypt():
+    plain_text = request.form["shift-encrypt"]
+    key = int(request.form["shiftEncKey"])
+    sending = shift_encrypt(key, plain_text)
+    return render_template(shiftHTML, encrypted=sending)
 
-@app.route('/columnarDecrypt', methods=['POST'])
-def columnarDecrypt():
-    text = request.form["columnar-decrypt"]
-    sending = text + " COLUMNAR DECRYPTED"
-    return render_template(columnarHTML, decrypted=sending)
+@app.route('/shiftDecrypt', methods=['POST'])
+def shiftDecrypt():
+    cipher_text = request.form["shift-decrypt"]
+    key = int(request.form["shiftDecKey"])
+    sending = shift_decrypt(key, cipher_text)
+    return render_template(shiftHTML, decrypted=sending)
 
 @app.route("/rsa")
 def rsa():
@@ -82,15 +85,15 @@ def substitution():
 
 @app.route('/substitutionEncrypt', methods=['POST'])
 def substitutionEncrypt():
-    plain_text = request.form["substitution-encrypt"]
-    key = int(request.form["subKeyEnc"])
-    sending = sub_encrypt(key, plain_text)
-    return render_template(subsHTML, encrypted=sending)
+    plaintext = request.form["substitution-encrypt"]
+    key = generate_key()
+    sending = sub_encrypt(key, plaintext)
+    return render_template(subsHTML, encrypted=sending, encryptedKey=key)
 
 @app.route('/substitutionDecrypt', methods=['POST'])
 def substitutionDecrypt():
     cipher_text = request.form["substitution-decrypt"]
-    key = int(request.form["subKeyDec"])
+    key = request.form["subKeyDec"]
     sending = sub_decrypt(key, cipher_text)
     return render_template(subsHTML, decrypted=sending)
 
