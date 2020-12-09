@@ -16,24 +16,24 @@
     <h2>Encrypt</h2>
     <form action="{{ url_for('shiftEncrypt') }}" method="POST">
       <label for="shiftEncKey">Enter key:</label>
-      <input type="number" id="shiftEncKey" name="shiftEncKey" required/> <br>
+      <input placeholder="e.g. 13" type="number" id="shiftEncKey" name="shiftEncKey" required/> <br>
       <label for="encrypt">Enter message to encrypt:</label><br>
       <textarea id="encrypt" name="shift-encrypt"></textarea><br>
       <input type="submit" value="Encrypt"/>
     </form>
 
-    <div><textarea disabled className="result">{{encrypted}}</textarea></div>
+    <div><textarea readonly className="result">{{encrypted}}</textarea></div>
     
     <h2>Decrypt</h2>
     <form action="{{ url_for('shiftDecrypt') }}" method="POST">
       <label for="shiftDecKey">Enter key:</label>
-      <input type="number" id="shiftEncKey" name="shiftDecKey" required/> <br>
+      <input placeholder="e.g. 13" type="number" id="shiftEncKey" name="shiftDecKey" required/> <br>
       <label for="decrypt">Enter message to decrypt:</label><br>
       <textarea id="decrypt" name="shift-decrypt"></textarea> <br>
       <input type="submit" value="Decrypt"/>
     </form>
 
-    <div><textarea disabled className="result">{{decrypted}}</textarea></div>
+    <div><textarea readonly className="result">{{decrypted}}</textarea></div>
     {% endblock %}
   </body>
 </html>

@@ -22,7 +22,7 @@ def numeric_pos(key, key_list):
 
 
 
-def encrypt(text, key):
+def columnar_encrypt(text, key):
     text = text.replace(" ", "").upper()
     key = key.upper()
     #assign list of keys
@@ -80,7 +80,7 @@ def encrypt(text, key):
 
     return encrypted
 
-def decrypt(cipher, key):
+def columnar_decrypt(cipher, key):
     cipher = cipher.replace(" ", "").upper()
     # print(msg)
     key = key.upper()
@@ -134,12 +134,12 @@ def main():
         if choice == 1:
             text = input("Enter text to encrypt: ")
             key = input("Enter keyword: ")
-            enc_text = encrypt(text, key)
+            enc_text = columnar_encrypt(text, key)
             print('Encrypted Text: {}'.format(enc_text))
         elif choice == 2:
             text = input("Enter text to decrypt: ")
             key = input("Enter keyword: ")
-            dec_text = decrypt(text, key)
+            dec_text = columnar_decrypt(text, key)
             print('Decrypted Text: {}'.format(dec_text))
         elif choice == 3:
             print("End Program")

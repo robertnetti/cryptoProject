@@ -16,35 +16,36 @@
       means such as frequency analysis, brute force, guessing or otherwise, the plaintext 
       of two ciphertext characters can be found, then the key can be obtained by solving a 
       simultaneous equation. </p> -->
-    <p> ❗❗❗ Make sure when choosing the keys, that they are relatively prime to 26. A couple of keys that you can use as an example are: 3, 
-      5, 7, 9, 11 ❗❗❗
+    <p> ❗❗❗ Make sure when choosing the multiplicative key, that the number is relatively prime to 26. Some examples you can use are: 3, 
+      5, 7, 9, 11❗❗❗ <br>
+      ⏩The additive key can be an arbitrary number⏪
     </p>
 
     <h2>Encrypt</h2>
     <form action="{{ url_for('affineEncrypt') }}" method="POST">
       <label for="multKey">Enter multiplicative key:</label>
-      <input type="number" id="multKey" name="multKeyAffine" required/> <br>
+      <input placeholder="e.g. 5" type="number" id="multKey" name="multKeyAffine" required/> <br>
       <label for="multKey">Enter additive key:</label>
-      <input type="number" id="addKey" name="addKeyAffine" required/> <br>
+      <input placeholder="e.g. 2" type="number" id="addKey" name="addKeyAffine" required/> <br>
       <label for="encrypt">Enter message to encrypt:</label><br>
       <textarea id="encrypt" name="affine-encrypt" required></textarea><br>
       <input type="submit" value="Encrypt"/>
     </form>
 
-    <div><textarea disabled className="result">{{encrypted}}</textarea></div>
+    <div><textarea readonly className="result">{{encrypted}}</textarea></div>
     
     <h2>Decrypt</h2>
     <form action="{{ url_for('affineDecrypt') }}" method="POST">
       <label for="multKey">Enter multiplicative key:</label>
-      <input type="number" id="multKey" name="multKeyAffineDec" required/> <br>
+      <input placeholder="e.g. 5" type="number" id="multKey" name="multKeyAffineDec" required/> <br>
       <label for="multKey">Enter additive key:</label>
-      <input type="number" id="addKey" name="addKeyAffineDec" required/> <br>
+      <input placeholder="e.g. 2" type="number" id="addKey" name="addKeyAffineDec" required/> <br>
       <label for="decrypt">Enter message to decrypt:</label><br>
       <textarea id="decrypt" name="affine-decrypt"></textarea> <br>
       <input type="submit" value="Decrypt"/>
     </form>
 
-    <div><textarea disabled className="result">{{decrypted}}</textarea></div>
+    <div><textarea readonly className="result">{{decrypted}}</textarea></div>
 
     {% endblock %}
   </body>

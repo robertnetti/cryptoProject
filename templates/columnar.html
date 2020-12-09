@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Columnar</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    <a href="{{ url_for('home') }}" class="btnStack">Back home</a>
+
+    <h1> Columnar </h1>
+    <p> 👉  A key is randomley generated and provided along with the Encrypted message. In order to decode it, simply
+      enter the key and cipher text in the decrypt part. </p>
+
+    <h2>Encrypt</h2>
+    <form action="{{ url_for('columnarEncrypt') }}" method="POST">
+      <label for="key">Enter Key:</label><br>
+      <input type="text" name="columnar-encrypt-key" placeholder="Has to be even numbers of letter"/><br>
+      <label for="encrypt">Enter message to encrypt:</label><br>
+      <textarea id="encrypt" name="columnar-encrypt"></textarea><br>
+      <input type="submit" value="Encrypt"/>
+      
+    </form>
+
+    <div><textarea readonly className="result">{{encrypted}}</textarea></div>
+    
+    <h2>Decrypt</h2>
+    <form action="{{ url_for('columnarDecrypt') }}" method="POST">
+      <label for="keyDec">Enter key:</label>
+      <input type="text" id="keyDec" name="columnKeyDec" required/> <br>
+      <label for="decrypt">Enter message to decrypt:</label><br>
+      <textarea id="decrypt" name="column-decrypt"></textarea> <br>
+      <input type="submit" value="Decrypt"/>
+    </form>
+
+    <div><textarea readonly readonly className="result">{{decrypted}}</textarea></div>
+
+    {% endblock %}
+  </body>
+</html>

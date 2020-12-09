@@ -106,7 +106,7 @@ body {
     border: 3px solid rgb(40, 75, 99);
   }
 
-  textarea[disabled] {
+  textarea[readonly] {
     background-color: rgb(223, 219, 219);
   }
 

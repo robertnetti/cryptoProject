@@ -3,12 +3,14 @@ from affine import encrypt, decrypt
 from rsa import rsaencrypt, rsadecrypt, modinv
 from substitution import generate_key, sub_encrypt, sub_decrypt
 from shift import shift_encrypt, shift_decrypt
+from columnar import columnar_encrypt, columnar_decrypt
 
 app = Flask(__name__)
 affineHTML = "affine.html"
 rsaHTML = "rsa.html"
 subsHTML = "substitution.html"
 shiftHTML = "shift.html"
+columnarHTML = "columnar.html"
 
 @app.route("/")
 def home():
@@ -96,6 +98,25 @@ def substitutionDecrypt():
     key = request.form["subKeyDec"]
     sending = sub_decrypt(key, cipher_text)
     return render_template(subsHTML, decrypted=sending)
+
+@app.route("/columnar")
+def columnar():
+    return render_template(columnarHTML)
+
+@app.route('/columnarEncrypt', methods=['POST'])
+def columnarEncrypt():
+    plain_text = request.form["columnar-encrypt"]
+    key = request.form["columnar-encrypt-key"]
+    sending = columnar_encrypt(plain_text, key)
+    return render_template(columnarHTML, encrypted=sending)
+
+@app.route('/columnarDecrypt', methods=['POST'])
+def columnarDecrypt():
+    cipher_text = request.form["column-decrypt"]
+    key = request.form["columnKeyDec"]
+    sending = columnar_decrypt(cipher_text, key)
+    return render_template(columnarHTML, decrypted=sending)
+
 
 @app.route("/about")
 def about():
