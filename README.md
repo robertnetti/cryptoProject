@@ -6,6 +6,7 @@ A website where users can encrypt and decrypt messages using various ciphers suc
 - RSA
 - Substitution
 - Shift
+- Columnar
 
 ## Created by:
 - Robert Netti
